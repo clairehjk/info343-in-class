@@ -31,4 +31,14 @@ body {
     .col {
         flex-grow: 1;
     }
+
+    @media (min-width: 900px) {
+        body {
+             background-color: rgb(203, 97, 226);
+             background-image: url();
+        }
+       .col {
+           background-color: rgba(255, 255, 255, 0.5);
+       }
+    }
 }
