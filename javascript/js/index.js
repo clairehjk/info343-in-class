@@ -289,10 +289,11 @@ a value returns `undefined` implicitly.
  * @returns {string}
  */
 function getGreeting(thePlayer) {
-    return "Hello " + thePlayer.firstName + "!";
+    return "Hello " + thePlayer.firstName + " " + player.lastName + "!";
 }
 //TODO: call getGreeting() passing your `player` variable
 //and write the return value to the console
+console.log(getGreeting(player));
 
 
 //TODO: change the getGreeting() function above
@@ -316,12 +317,16 @@ function getGreeting(thePlayer) {
  */
 function levelUp(thePlayer) {
     //TODO: implement this function
+    thePlayer.level++;
+    thePlayer.totalPoints +=  Math.ceil(thePlayer.totalPoints * 
+        (thePlayer.level * 0.1));
+    return thePlayer;
 }
 
 //create a new player
 let player2 = {
-    level: 0,
-    totalPoints: 10
+    level: 5,
+    totalPoints: 500
 }
 //pass that player to levelUp().
 //we can add the property access expression `.totalPoints` after levelUp() 
@@ -343,7 +348,11 @@ console.log("points after leveling-up: %d", levelUp(player2).totalPoints);
  */
 function randomIntegers(amount, max) {
     //TODO: implement this function according to the comments above
-
+    let number = [];
+    for(let i = 0; i < amount; i++) {
+        number.push(Math.round(Math.random() * max));
+    }
+    return number;
 }
 
 let randomNums = randomIntegers(10, 100);
@@ -356,7 +365,10 @@ console.log("random integers:", randomNums);
  */
 function max(arrayOfNumbers) {
     //TODO: implement this function according to the comments above
-
+    let max = arrayOfNumbers[0];
+    for(let i=0; i < arrayOfNumbers.length;i++) {
+        max = arrayOfNumbers[i] > max ? arrayOfNumbers[1] : max;
+    }
 }
 
 console.log("the maximum value in %o is %d", randomNums, max(randomNums));
@@ -369,7 +381,13 @@ console.log("the maximum value in %o is %d", randomNums, max(randomNums));
  * @returns {*[]}
  */
 function reverseArray(input) {
-    //TODO: implement this function according to the comments    
+    //TODO: implement this function according to the comments  
+    // let reversed=[];
+    // for(let i = input.length-1; i>=0;i--) {
+    //     reversed.push(input[i]);
+    // }
+    let reversed = input.reverse();
+    return reversed;
 }
 
 console.log("random integers reversed:", reverseArray(randomNums));
@@ -393,7 +411,8 @@ it doesn't put anything in between the elements.
 //remember that you already have a reverseArray() function
 let stringToReverse = "stressed";
 
-
+let reverseStress= reverseArray(stringToReverse.split("")).join("");
+console.log(reverseStress);
 /* FUNCTIONS CALLING FUNCTIONS */
 
 /**
