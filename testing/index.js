@@ -8,6 +8,8 @@
  * @param {number} n2 
  */
 function byNumber(n1, n2) {
+    if(n1 === undefined) return -1;
+    if(n2===undefined) return 1;
     return n1 - n2;
 }
 
